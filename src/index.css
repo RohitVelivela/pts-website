@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+  body {
+    background-color: #F8FAFD;
+    color: #334155;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: #F7F8FA; }
+  ::-webkit-scrollbar-thumb { background: #E8231A; border-radius: 9999px; }
+  ::-webkit-scrollbar-thumb:hover { background: #C41B13; }
+
+  ::selection { background: rgba(232,35,26,0.12); color: #E8231A; }
+}
+
+@layer components {
+
+  /* ── CARDS ── */
+  .card {
+    background: #FFFFFF;
+    border: 1px solid #E5E9F0;
+    border-radius: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.06);
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1),
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(232,35,26,0.2);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1), 0 2px 6px rgba(0,0,0,0.05), 0 0 0 1px rgba(232,35,26,0.08);
+  }
+
+  .card-flat {
+    background: #FFFFFF;
+    border: 1px solid #E5E9F0;
+    border-radius: 16px;
+  }
+
+  /* ── GRADIENT TEXT ── */
+  .text-grad-brand {
+    background: linear-gradient(135deg, #E8231A, #ff4d45);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-grad-navy {
+    background: linear-gradient(135deg, #0F2040, #1E3A5F);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-grad-green {
+    background: linear-gradient(135deg, #1B8C3C, #22A84A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── SECTION LABEL (navy badge) ── */
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 14px;
+    border-radius: 9999px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    color: #1E3A5F;
+    border: 1px solid rgba(15,32,64,0.18);
+    background: rgba(15,32,64,0.06);
+  }
+
+  /* ── BUTTONS ── */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 30px;
+    border-radius: 9999px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #E8231A, #C41B13);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(232,35,26,0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(232,35,26,0.4);
+    filter: brightness(1.05);
+  }
+
+  .btn-blue {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 30px;
+    border-radius: 9999px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #2C5282, #1A3558);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(26,53,88,0.28);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+  .btn-blue:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px rgba(26,53,88,0.38);
+    filter: brightness(1.10);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 30px;
+    border-radius: 9999px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    background: transparent;
+    color: #E8231A;
+    border: 1.5px solid #E8231A;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .btn-secondary:hover {
+    background: rgba(232,35,26,0.06);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(232,35,26,0.15);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 30px;
+    border-radius: 9999px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    background: transparent;
+    color: #E8231A;
+    border: 1.5px solid #E8231A;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .btn-outline:hover {
+    background: rgba(232,35,26,0.06);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(232,35,26,0.15);
+  }
+
+  .btn-outline-dark {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 30px;
+    border-radius: 9999px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    background: transparent;
+    color: #FFFFFF;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .btn-outline-dark:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.7);
+  }
+
+  /* ── SECTION DIVIDER ── */
+  .brand-line {
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, #E8231A, #C41B13);
+    border-radius: 9999px;
+  }
+
+  /* ── IMAGE with overlay ── */
+  .img-overlay {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+  }
+  .img-overlay img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .img-overlay:hover img { transform: scale(1.04); }
+}
+
+@layer utilities {
+  .font-display { font-family: 'Rajdhani', sans-serif; }
+  .section-py { padding-top: 5rem; padding-bottom: 5rem; }
+  @screen lg { .section-py { padding-top: 7rem; padding-bottom: 7rem; } }
+}
