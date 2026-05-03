@@ -161,7 +161,7 @@ export default function Contact() {
 
               {/* Logo card */}
               <motion.div variants={fadeRight} className="card p-6">
-                <img src="/logo.png" alt="PTS" className="h-10 w-auto object-contain mb-4" />
+                <img src="/logo-updated.png" alt="PTS" className="h-10 w-auto object-contain mb-4" />
                 <p className="text-text-body font-body text-sm leading-relaxed">
                   Pinnacle Technology Services — engineering excellence delivered with integrity, precision, and accountability.
                 </p>

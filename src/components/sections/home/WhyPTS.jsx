@@ -28,7 +28,8 @@ export default function WhyPTS() {
             style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}
           >
             The Engineering Partner That
-            <span className="text-grad-brand"> Delivers</span>
+            {' '}
+            <span className="text-grad-brand">Delivers</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -40,12 +41,53 @@ export default function WhyPTS() {
           </motion.p>
         </div>
 
+        <div className="grid gap-4 lg:hidden">
+          {differentiators.map((d, i) => {
+            const color = palette[i]
+            const Icon = icons[d.icon] || Clock
+
+            return (
+              <motion.div
+                key={d.title}
+                initial={{ opacity: 0, y: 22 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.45, delay: 0.08 + i * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                className="rounded-[22px] border bg-white p-5 shadow-[0_10px_30px_rgba(15,23,42,0.07)]"
+                style={{ borderColor: `${color}20` }}
+              >
+                <div className="min-w-0">
+                  <div className="mb-3 flex items-center gap-3">
+                    <div
+                      className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl"
+                      style={{ background: `${color}12`, border: `1px solid ${color}28` }}
+                    >
+                      <Icon size={18} style={{ color }} />
+                    </div>
+                    <div>
+                      <p className="font-display text-xs font-bold uppercase tracking-[0.18em]" style={{ color }}>
+                        {d.number}
+                      </p>
+                      <h3 className="font-display text-lg font-bold leading-tight text-text-heading">
+                        {d.title}
+                      </h3>
+                    </div>
+                  </div>
+
+                  <p className="font-body text-sm leading-6 text-text-body">
+                    {d.desc}
+                  </p>
+                </div>
+              </motion.div>
+            )
+          })}
+        </div>
+
         {/* ── Horizontal zig-zag strip ─────────────────────────────────────────
             All 5 cards in ONE row — no blank cells.
             Between each card sits a 52 px connector column with a diagonal arrow
             that alternates ↘ ↗ ↘ ↗ to create the zig-zag reading path.
         ────────────────────────────────────────────────────────────────────── */}
-        <div style={{ overflowX: 'auto', paddingBottom: 4 }}>
+        <div className="hidden lg:block" style={{ overflowX: 'auto', paddingBottom: 4 }}>
           <div
             style={{
               display: 'flex',

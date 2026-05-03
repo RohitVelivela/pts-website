@@ -1,5 +1,6 @@
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { ArrowRight, CheckCircle2, ChevronDown, Building2 } from 'lucide-react'
 import { useScrollReveal, staggerContainer, fadeUp } from '../hooks/useScrollAnimation'
 import CTABanner from '../components/sections/home/CTABanner'
@@ -31,6 +32,7 @@ function SubServiceCard({ sub, color, serviceSlug }) {
 
 export default function Services() {
   const [activeTab, setActiveTab] = useState(null)
+  const navigate = useNavigate()
   const { ref, animate } = useScrollReveal(0.05)
   const active = services.find(s => s.slug === activeTab)
 
@@ -91,8 +93,8 @@ export default function Services() {
       </section>
 
       {/* ── Service Cards ── */}
-      <section ref={ref} className="py-20 bg-bg-section">
-        <div className="max-w-7xl mx-auto px-5 lg:px-8">
+      <section ref={ref} className="py-12 lg:py-20 bg-bg-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-8">
 
           <motion.div
             variants={staggerContainer}
@@ -108,6 +110,8 @@ export default function Services() {
                 <motion.div key={s.slug} variants={fadeUp} className="h-full">
                   <div
                     className="h-full flex flex-col cursor-pointer"
+                    role="button"
+                    tabIndex={0}
                     style={{
                       background: '#fff',
                       borderRadius: '20px',
@@ -117,7 +121,13 @@ export default function Services() {
                     }}
                     onMouseEnter={e => { if (!isActive) { e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.boxShadow = '0 14px 36px rgba(0,0,0,0.10)' } }}
                     onMouseLeave={e => { if (!isActive) { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'none' } }}
-                    onClick={() => setActiveTab(isActive ? null : s.slug)}
+                    onClick={() => navigate(`/services/${s.slug}`)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault()
+                        navigate(`/services/${s.slug}`)
+                      }
+                    }}
                   >
                     {/* Color accent bar */}
                     <div style={{ height: '3px', background: s.color, flexShrink: 0 }} />
@@ -175,14 +185,24 @@ export default function Services() {
                         >
                           Full Details <ArrowRight size={12} />
                         </Link>
-                        <ChevronDown
-                          size={16}
-                          style={{
-                            color: s.color,
-                            transition: 'transform 0.3s ease',
-                            transform: isActive ? 'rotate(180deg)' : 'rotate(0deg)',
+                        <button
+                          type="button"
+                          aria-label={`Toggle ${s.title} quick details`}
+                          className="inline-flex items-center justify-center"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            setActiveTab(isActive ? null : s.slug)
                           }}
-                        />
+                        >
+                          <ChevronDown
+                            size={16}
+                            style={{
+                              color: s.color,
+                              transition: 'transform 0.3s ease',
+                              transform: isActive ? 'rotate(180deg)' : 'rotate(0deg)',
+                            }}
+                          />
+                        </button>
                       </div>
                     </div>
                   </div>

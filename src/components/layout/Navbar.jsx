@@ -48,7 +48,7 @@ export default function Navbar() {
 
             {/* Logo */}
             <Link to="/" className="flex-shrink-0">
-              <img src="/logo.png" alt="Pinnacle Technology Services" className="h-20 w-auto object-contain" />
+              <img src="/logo-updated.png" alt="Pinnacle Technology Services" className="h-20 w-auto object-contain" />
             </Link>
 
             {/* ── Desktop Nav ── */}
@@ -195,11 +195,15 @@ export default function Navbar() {
             style={{ borderBottom: '1px solid #E5E9F0', boxShadow: '0 16px 40px rgba(0,0,0,0.1)' }}
           >
             <div className="flex flex-col gap-1 max-w-7xl mx-auto">
-              {[...navLinks, { label: 'Contact', path: '/contact' }].map((link) => {
+              {navLinks.map((link) => {
                 const isActive = location.pathname === link.path
                 return (
                   <Link key={link.label} to={link.path}
                     className="px-4 py-3.5 rounded-xl transition-all duration-150 flex items-center justify-between"
+                    onClick={() => {
+                      setMobileOpen(false)
+                      setDropdown(false)
+                    }}
                     style={{
                       fontFamily: SG, fontWeight: 600, fontSize: '17px', letterSpacing: '-0.01em',
                       color: isActive ? '#E8231A' : '#1F2937',

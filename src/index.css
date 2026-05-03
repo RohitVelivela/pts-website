@@ -24,6 +24,16 @@
 
 @layer components {
 
+  .hero-video {
+    object-position: center 45%;
+  }
+
+  @media (max-width: 768px) {
+    .hero-video {
+      object-position: 62% 52%;
+    }
+  }
+
   /* ── CARDS ── */
   .card {
     background: #FFFFFF;
@@ -227,4 +237,21 @@
   .font-display { font-family: 'Rajdhani', sans-serif; }
   .section-py { padding-top: 5rem; padding-bottom: 5rem; }
   @screen lg { .section-py { padding-top: 7rem; padding-bottom: 7rem; } }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* ── Hero viewport height — accounts for mobile browser chrome ── */
+  /* stylelint-disable declaration-block-no-duplicate-properties */
+  .hero-min-h {
+    min-height: 100vh;
+    /* svh shrinks with browser chrome on mobile, preventing overflow */
+    min-height: max(100svh, 600px);
+  }
+  /* stylelint-enable declaration-block-no-duplicate-properties */
 }

@@ -23,7 +23,7 @@ export default function Footer() {
 
           {/* Brand — 4 cols */}
           <div className="lg:col-span-4">
-            <img src="/logo.png" alt="Pinnacle Technology Services" className="h-20 w-auto object-contain mb-6" />
+            <img src="/logo-updated.png" alt="Pinnacle Technology Services" className="h-20 w-auto object-contain mb-6" />
             <p className="font-body text-sm leading-relaxed mb-6 text-text-muted" style={{ maxWidth: '280px' }}>
               B2B Engineering & IT Services from Hyderabad. 16+ years delivering precision to Oil & Gas, Power Plants, Refineries and more.
             </p>

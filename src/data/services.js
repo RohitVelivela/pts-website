@@ -97,7 +97,7 @@ export const services = [
       },
     ],
     industries: ['Oil & Gas', 'Petrochemical', 'Refineries', 'Chemical Plants', 'Power Generation', 'Water Treatment'],
-    color: '#00D4FF',
+    color: '#0066CC',
     faqs: [
       {
         q: 'Can PINNACLE handle all six disciplines on a single project, or do you specialise in a few?',
@@ -207,7 +207,7 @@ export const services = [
       },
     ],
     industries: ['Buildings & Utilities', 'Pharmaceutical', 'Industrial Facilities', 'Commercial Buildings', 'Infrastructure'],
-    color: '#00FFB3',
+    color: '#0066CC',
     faqs: [
       {
         q: 'What LOD levels do you work to?',
@@ -317,7 +317,7 @@ export const services = [
       },
     ],
     industries: ['All Industries'],
-    color: '#7B4DFF',
+    color: '#0066CC',
     faqs: [
       {
         q: 'Can you manage IT infrastructure for a company that has offices in multiple cities or countries?',
@@ -421,7 +421,7 @@ export const services = [
       },
     ],
     industries: ['Oil & Gas', 'Power Plants', 'Refineries', 'Process Plants', 'Infrastructure'],
-    color: '#FF8C00',
+    color: '#0066CC',
     faqs: [
       {
         q: 'Do you include model files and raw output in your analysis deliverables?',
@@ -521,7 +521,7 @@ export const services = [
       },
     ],
     industries: ['Oil & Gas', 'Chemical Plants', 'Refineries', 'Process Plants', 'Power Generation'],
-    color: '#00D4FF',
+    color: '#0066CC',
     faqs: [
       {
         q: 'Do you adopt our drawing standards and title blocks, or do you use your own?',
@@ -608,7 +608,7 @@ export const services = [
       },
     ],
     industries: ['Refineries', 'Power Plants', 'Chemical Plants', 'Buildings', 'Industrial Facilities'],
-    color: '#00FFB3',
+    color: '#0066CC',
     faqs: [
       {
         q: 'We have partial drawings for our facility. Can you work with incomplete documentation?',
@@ -708,7 +708,7 @@ export const services = [
       },
     ],
     industries: ['All Industries'],
-    color: '#FF8C00',
+    color: '#0066CC',
     faqs: [
       {
         q: 'Can your PMs work embedded within our project team rather than externally?',
@@ -735,7 +735,7 @@ export const services = [
       { title: 'Construction Support', slug: 'construction-support', desc: 'Engineering support during construction with issue resolution and site coordination.' },
     ],
     industries: ['Oil & Gas', 'Petrochemical', 'Power Plants', 'Refineries'],
-    color: '#7B4DFF',
+    color: '#0066CC',
     faqs: [
       {
         q: 'Can you manage vendor document review as part of your procurement support?',
@@ -763,7 +763,7 @@ export const services = [
       { title: 'Pre-bid Support', slug: 'pre-bid-support', desc: 'Bid-quality engineering packages that enable accurate, competitive vendor and contractor pricing.' },
     ],
     industries: ['Oil & Gas', 'Refineries', 'Petrochemical', 'Power Plants', 'Chemical Plants'],
-    color: '#00D4FF',
+    color: '#0066CC',
     faqs: [
       {
         q: 'Can you deliver both FEED and detailed engineering for the same project?',

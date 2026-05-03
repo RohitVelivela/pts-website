@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, ChevronRight } from 'lucide-react'
 import { useScrollReveal, staggerContainer, fadeUp } from '../../../hooks/useScrollAnimation'
 import SectionLabel from '../../ui/SectionLabel'
 import { services } from '../../../data/services'
@@ -10,6 +10,16 @@ import { serviceImages } from '../../../data/images'
 export default function ServicesGrid() {
   const { ref, animate } = useScrollReveal()
   const [activeSlug, setActiveSlug] = useState(null)
+  const cardRefs = useRef({})
+
+  const focusCard = (slug) => {
+    setActiveSlug(slug)
+    cardRefs.current[slug]?.scrollIntoView({
+      behavior: 'smooth',
+      inline: 'center',
+      block: 'nearest',
+    })
+  }
 
   return (
     <section ref={ref} className="py-24 lg:py-32 bg-bg-page">
@@ -22,19 +32,71 @@ export default function ServicesGrid() {
           </motion.div>
           <motion.h2 variants={fadeUp} className="font-display font-bold text-text-heading mb-4" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
             One Stop Solution for All Your
-            <span className="text-grad-brand"> Engineering Needs</span>
+            {' '}
+            <span className="text-grad-brand">Engineering Needs</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="text-text-body font-body text-lg max-w-2xl mx-auto">
             From conceptual design to as-built documentation — precision delivered across every discipline.
           </motion.p>
         </motion.div>
 
+        <motion.div variants={fadeUp} initial="hidden" animate={animate} className="grid gap-4 lg:hidden">
+          {services.map((s) => {
+            const img = serviceImages[s.slug]
+
+            return (
+              <Link
+                key={s.slug}
+                to={`/services/${s.slug}`}
+                className="overflow-hidden rounded-[22px] border border-border-light bg-white shadow-[0_10px_30px_rgba(15,23,42,0.08)]"
+              >
+                <div className="flex min-h-[132px] items-stretch">
+                  <div className="relative w-[108px] flex-shrink-0 bg-slate-200">
+                    {img ? (
+                      <img src={img} alt={s.title} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+                    ) : (
+                      <div className="absolute inset-0 bg-slate-300" />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/5 to-transparent" />
+                  </div>
+
+                  <div className="flex flex-1 items-center justify-between gap-3 p-4">
+                    <div className="min-w-0">
+                      <div className="mb-2 flex items-center gap-2">
+                        <div
+                          className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl"
+                          style={{ background: `${s.color}12`, border: `1px solid ${s.color}24` }}
+                        >
+                          <s.icon size={18} style={{ color: s.color }} />
+                        </div>
+                        <h3 className="font-display text-lg font-bold leading-tight text-text-heading">
+                          {s.title}
+                        </h3>
+                      </div>
+
+                      <p className="line-clamp-2 font-body text-sm leading-6 text-text-body">
+                        {s.shortDesc}
+                      </p>
+                    </div>
+
+                    <div
+                      className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full"
+                      style={{ background: `${s.color}10`, color: s.color }}
+                    >
+                      <ChevronRight size={18} />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            )
+          })}
+        </motion.div>
+
         {/* Expanding accordion strip */}
-        <motion.div variants={fadeUp} initial="hidden" animate={animate} style={{ paddingLeft: '6rem' }}>
+        <motion.div variants={fadeUp} initial="hidden" animate={animate} className="hidden lg:block lg:overflow-visible lg:pb-0">
           <div
-            className="flex gap-1.5 overflow-hidden rounded-xl"
-            style={{ height: 'clamp(320px, 36vw, 440px)' }}
-            onMouseLeave={() => setActiveSlug(null)}
+            className="mx-auto flex w-max gap-1.5 rounded-xl px-4 lg:px-0"
+            style={{ height: 'clamp(320px, 36vw, 440px)', touchAction: 'pan-x' }}
           >
             {services.map((s) => {
               const img = serviceImages[s.slug]
@@ -43,14 +105,21 @@ export default function ServicesGrid() {
               return (
                 <div
                   key={s.slug}
-                  className="relative overflow-hidden flex-shrink-0 cursor-pointer"
+                  ref={(node) => {
+                    cardRefs.current[s.slug] = node
+                  }}
+                  className="relative snap-center overflow-hidden flex-shrink-0 cursor-pointer"
                   style={{
-                    width: isActive ? 'clamp(300px, 40%, 520px)' : 'clamp(68px, 7vw, 115px)',
+                    width: isActive ? 'clamp(220px, 58vw, 520px)' : 'clamp(72px, 16vw, 115px)',
                     transition: 'width 0.22s ease-out',
                   }}
-                  onMouseEnter={() => setActiveSlug(s.slug)}
                 >
-                  <Link to={`/services/${s.slug}`} className="block h-full">
+                  <Link
+                    to={`/services/${s.slug}`}
+                    className="block h-full"
+                    onMouseEnter={() => focusCard(s.slug)}
+                    onFocus={() => focusCard(s.slug)}
+                  >
 
                     {/* Background image */}
                     {img ? (

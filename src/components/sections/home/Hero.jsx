@@ -17,7 +17,7 @@ export default function Hero({ loaded }) {
   const videoRef = useRef(null)
 
   return (
-    <section className="relative overflow-hidden" style={{ minHeight: '100vh' }}>
+    <section className="hero-min-h relative overflow-hidden">
 
       {/* ── FULL-BLEED VIDEO BACKGROUND ── */}
       <video
@@ -26,36 +26,58 @@ export default function Hero({ loaded }) {
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ zIndex: 0 }}
+        aria-hidden="true"
+        tabIndex={-1}
+        className="hero-video absolute inset-0 w-full h-full object-cover"
+        style={{
+          zIndex: 0,
+        }}
       >
         <source src="/home page video (1).mp4" type="video/mp4" />
       </video>
 
       {/* ── LAYERED GRADIENT OVERLAYS ── */}
-      {/* Left-to-right: light tint so text is readable, video shows through */}
-      <div className="absolute inset-0" style={{ zIndex: 1, background: 'linear-gradient(100deg, rgba(6,13,26,0.60) 0%, rgba(6,13,26,0.32) 42%, rgba(6,13,26,0.04) 100%)' }} />
+      {/* Primary: left-to-right dark tint — stronger on mobile for readability */}
+      <div
+        className="absolute inset-0"
+        style={{
+          zIndex: 1,
+          background: 'linear-gradient(110deg, rgba(6,13,26,0.82) 0%, rgba(6,13,26,0.62) 45%, rgba(6,13,26,0.28) 100%)',
+        }}
+      />
       {/* Bottom fade to blend into next section */}
-      <div className="absolute inset-0" style={{ zIndex: 1, background: 'linear-gradient(to top, rgba(0,0,0,0.38) 0%, transparent 35%)' }} />
+      <div
+        className="absolute inset-0"
+        style={{ zIndex: 1, background: 'linear-gradient(to top, rgba(0,0,0,0.50) 0%, transparent 45%)' }}
+      />
       {/* Top fade for navbar blend */}
-      <div className="absolute inset-0" style={{ zIndex: 1, background: 'linear-gradient(to bottom, rgba(0,0,0,0.18) 0%, transparent 15%)' }} />
+      <div
+        className="absolute inset-0"
+        style={{ zIndex: 1, background: 'linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, transparent 22%)' }}
+      />
 
 
       {/* ── MAIN CONTENT ── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-5 lg:px-8 flex flex-col justify-center" style={{ minHeight: '100vh', paddingTop: '110px', paddingBottom: '120px' }}>
+      <div
+        className="hero-min-h relative z-10 max-w-7xl mx-auto px-5 lg:px-8 flex flex-col justify-center"
+        style={{
+          paddingTop:    'clamp(96px, 16vw, 130px)',
+          paddingBottom: 'clamp(72px, 12vw, 120px)',
+        }}
+      >
 
         <motion.div
           variants={heroVariants}
           initial="hidden"
           animate={loaded ? 'visible' : 'hidden'}
-          className="max-w-2xl xl:max-w-3xl"
+          className="w-full max-w-lg sm:max-w-xl lg:max-w-2xl xl:max-w-3xl"
         >
           {/* Brand logotype */}
           <motion.div variants={item} className="mb-4">
             <div
               className="font-display font-bold leading-none"
               style={{
-                fontSize: 'clamp(3.2rem, 7vw, 6rem)',
+                fontSize: 'clamp(2.8rem, 10vw, 6rem)',
                 color: '#FFFFFF',
                 textShadow: '0 2px 24px rgba(0,0,0,0.55)',
               }}
@@ -65,9 +87,9 @@ export default function Hero({ loaded }) {
             <div
               className="font-display font-semibold uppercase mt-1.5"
               style={{
-                fontSize: 'clamp(0.7rem, 1.3vw, 0.95rem)',
+                fontSize: 'clamp(0.62rem, 2.6vw, 0.95rem)',
                 color: '#F59E0B',
-                letterSpacing: '0.28em',
+                letterSpacing: '0.24em',
                 textShadow: '0 1px 8px rgba(0,0,0,0.5)',
               }}
             >
@@ -76,8 +98,8 @@ export default function Hero({ loaded }) {
             <div
               className="font-body italic mt-1"
               style={{
-                fontSize: '0.85rem',
-                color: 'rgba(255,255,255,0.45)',
+                fontSize: 'clamp(0.75rem, 2.2vw, 0.85rem)',
+                color: 'rgba(255,255,255,0.50)',
                 textShadow: '0 1px 6px rgba(0,0,0,0.6)',
               }}
             >
@@ -88,9 +110,9 @@ export default function Hero({ loaded }) {
           {/* Headline */}
           <motion.h1
             variants={item}
-            className="font-display font-bold text-white leading-tight mt-6 mb-5"
+            className="font-display font-bold text-white leading-tight mt-5 mb-4"
             style={{
-              fontSize: 'clamp(2rem, 4vw, 3.2rem)',
+              fontSize: 'clamp(1.7rem, 5.5vw, 3.2rem)',
               textShadow: '0 2px 14px rgba(0,0,0,0.6)',
             }}
           >
@@ -102,9 +124,9 @@ export default function Hero({ loaded }) {
           {/* Subheadline */}
           <motion.p
             variants={item}
-            className="font-body leading-relaxed mb-9"
+            className="font-body leading-relaxed mb-8"
             style={{
-              fontSize: '1.1rem',
+              fontSize: 'clamp(0.88rem, 2.6vw, 1.1rem)',
               color: 'rgba(255,255,255,0.88)',
               maxWidth: '540px',
               textShadow: '0 1px 8px rgba(0,0,0,0.55)',
@@ -114,21 +136,32 @@ export default function Hero({ loaded }) {
           </motion.p>
 
           {/* CTA Buttons */}
-          <motion.div variants={item} className="flex flex-wrap gap-4 mb-12">
+          <motion.div variants={item} className="flex flex-wrap gap-3 sm:gap-4 mb-10">
             <Link to="/services" className="btn-blue">
               Explore Services <ArrowRight size={15} />
             </Link>
             <Link
               to="/contact"
               className="inline-flex items-center gap-2 font-body font-semibold text-sm px-6 py-3 rounded-full transition-all duration-200"
-              style={{ background: 'rgba(255,255,255,0.12)', backdropFilter: 'blur(10px)', border: '1.5px solid rgba(255,255,255,0.45)', color: '#fff' }}
-              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.22)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.7)' }}
-              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.45)' }}
+              style={{
+                background: 'rgba(255,255,255,0.12)',
+                backdropFilter: 'blur(10px)',
+                WebkitBackdropFilter: 'blur(10px)',
+                border: '1.5px solid rgba(255,255,255,0.45)',
+                color: '#fff',
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.background = 'rgba(255,255,255,0.22)'
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.7)'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.background = 'rgba(255,255,255,0.12)'
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.45)'
+              }}
             >
               Talk to an Expert
             </Link>
           </motion.div>
-
 
         </motion.div>
       </div>

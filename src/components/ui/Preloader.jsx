@@ -34,7 +34,7 @@ export default function Preloader({ onComplete }) {
             transition={{ duration: 0.5, ease: [0.34, 1.56, 0.64, 1] }}
             className="mb-10"
           >
-            <img src="/logo.png" alt="Pinnacle Technology Services" className="h-14 w-auto object-contain" />
+            <img src="/logo-updated.png" alt="Pinnacle Technology Services" className="h-14 w-auto object-contain" />
           </motion.div>
 
           {/* Track */}

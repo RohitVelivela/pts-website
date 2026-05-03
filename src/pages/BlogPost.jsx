@@ -101,8 +101,8 @@ export default function BlogPost() {
       </section>
 
       {/* ── Article + Sidebar ── */}
-      <section className="py-14 bg-bg-section">
-        <div className="max-w-7xl mx-auto px-5 lg:px-8">
+      <section className="py-8 lg:py-14 bg-bg-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-8">
           <div className="grid lg:grid-cols-[1fr_320px] gap-10 items-start">
 
             {/* ── Article body ── */}
@@ -111,11 +111,11 @@ export default function BlogPost() {
               {/* Top accent bar */}
               <div className="h-1 w-full" style={{ background: 'linear-gradient(90deg, #E8231A 0%, #1B8C3C 50%, #F59E0B 100%)' }} />
 
-              <div className="px-10 py-12 lg:px-14 lg:py-14">
+              <div className="px-5 sm:px-10 py-8 sm:py-12 lg:px-14 lg:py-14">
                 {post.content ? (
                   <>
                     {post.content.map((section, i) => (
-                      <div key={i} className={i > 0 ? 'mt-12 pt-10 border-t border-border-light' : ''}>
+                      <div key={i} className={i > 0 ? 'mt-12 pt-10' : ''}>
 
                         {/* Section heading */}
                         {section.heading && (

@@ -53,13 +53,13 @@ export default function Industries() {
               const img = industryImages[ind.name]
               return (
                 <motion.div
-                  key={ind.id}
-                  variants={fadeUp}
-                  className="group relative overflow-hidden rounded-2xl cursor-pointer"
-                  style={{ height: '340px' }}
-                  whileHover={{ scale: 1.01 }}
-                  transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-                >
+                   key={ind.id}
+                   variants={fadeUp}
+                   className="group relative overflow-hidden rounded-2xl"
+                   style={{ height: '340px' }}
+                   whileHover={{ scale: 1.01 }}
+                   transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+                 >
                   {/* Full-bleed background image */}
                   {img ? (
                     <img
