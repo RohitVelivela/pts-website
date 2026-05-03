@@ -7,7 +7,8 @@ import Footer from './components/layout/Footer'
 const Home         = lazy(() => import('./pages/Home'))
 const About        = lazy(() => import('./pages/About'))
 const Services     = lazy(() => import('./pages/Services'))
-const ServiceDetail= lazy(() => import('./pages/ServiceDetail'))
+const ServiceDetail      = lazy(() => import('./pages/ServiceDetail'))
+const SubServiceDetail   = lazy(() => import('./pages/SubServiceDetail'))
 const Industries   = lazy(() => import('./pages/Industries'))
 const Blog         = lazy(() => import('./pages/Blog'))
 const BlogPost     = lazy(() => import('./pages/BlogPost'))
@@ -35,7 +36,8 @@ export default function App() {
               <Route path="/"                    element={<Home />} />
               <Route path="/about"               element={<About />} />
               <Route path="/services"            element={<Services />} />
-              <Route path="/services/:slug"      element={<ServiceDetail />} />
+              <Route path="/services/:slug"             element={<ServiceDetail />} />
+              <Route path="/services/:slug/:subSlug"  element={<SubServiceDetail />} />
               <Route path="/industries"          element={<Industries />} />
               <Route path="/blog"                element={<Blog />} />
               <Route path="/blog/:slug"          element={<BlogPost />} />

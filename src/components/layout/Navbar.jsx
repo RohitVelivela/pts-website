@@ -110,15 +110,11 @@ export default function Navbar() {
                                   <s.icon size={13} style={{ color: s.color }} />
                                 </div>
                                 <div>
-                                  <div className="transition-colors duration-150 group-hover:text-brand"
-                                    style={{ fontFamily: SG, fontWeight: 600, fontSize: '13.5px', color: '#111827' }}>
-                                    {s.title}
-                                  </div>
-                                  <div className="mt-0.5 line-clamp-1"
-                                    style={{ fontFamily: SG, fontSize: '11.5px', color: '#9CA3AF' }}>
-                                    {s.shortDesc.split('.')[0]}
-                                  </div>
-                                </div>
+                                   <div className="transition-colors duration-150 group-hover:text-brand"
+                                     style={{ fontFamily: SG, fontWeight: 600, fontSize: '13.5px', color: '#111827' }}>
+                                     {s.title}
+                                   </div>
+                                 </div>
                               </Link>
                             ))}
                           </div>

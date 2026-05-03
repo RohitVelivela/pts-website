@@ -112,12 +112,12 @@ export default function ServicesGrid() {
                         <ul className="space-y-1">
                           {s.subServices?.slice(0, 5).map((sub) => (
                             <li
-                              key={sub}
+                              key={sub.title}
                               className="flex items-center gap-1.5 text-gray-200 font-body"
                               style={{ fontSize: 'clamp(9px, 0.78vw, 11px)' }}
                             >
                               <span style={{ color: '#E8231A', fontSize: '8px' }}>▶</span>
-                              {sub}
+                              {sub.title}
                             </li>
                           ))}
                         </ul>

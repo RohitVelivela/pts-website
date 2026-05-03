@@ -8,7 +8,7 @@ import CTABanner from '../components/sections/home/CTABanner'
 import { blogPosts } from '../data/content'
 import { images } from '../data/images'
 
-const categories = ['All', 'BIM Services', 'Analysis Services', 'IT Services', 'Plant Engineering', 'Project Management']
+const categories = ['All', 'Plant Engineering', 'Analysis Services', 'CAD Drafting & 3D Modelling', 'Project Management', 'BIM Services', 'IT Services']
 
 export default function Blog() {
   const [activeCategory, setActiveCategory] = useState('All')
