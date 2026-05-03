@@ -161,17 +161,15 @@ export default function Navbar() {
 
             {/* Right: phone + CTA */}
             <div className="hidden lg:flex items-center gap-4 ml-auto">
-              <a href="tel:+918328245609"
-                className="flex items-center gap-2 transition-all duration-200"
-                style={{ color: '#6B7280', textDecoration: 'none' }}
-                onMouseEnter={e => e.currentTarget.style.color = '#E8231A'}
-                onMouseLeave={e => e.currentTarget.style.color = '#6B7280'}
+              <div
+                className="flex items-center gap-2"
+                style={{ color: '#6B7280' }}
               >
                 <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'rgba(27,140,60,0.09)' }}>
                   <Phone size={13} style={{ color: '#1B8C3C' }} />
                 </div>
                 <span style={{ fontFamily: SG, fontWeight: 600, fontSize: '14.5px' }}>+91 83282 45609</span>
-              </a>
+              </div>
             </div>
 
             {/* Mobile toggle */}

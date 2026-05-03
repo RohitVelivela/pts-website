@@ -53,12 +53,12 @@ export default function CTABanner() {
             >
               Start a Conversation <ArrowRight size={16} />
             </Link>
-            <a
-              href={`tel:${company.phone}`}
+            <Link
+              to="/contact"
               className="inline-flex items-center gap-2 px-10 py-3.5 rounded-full font-display font-bold text-sm tracking-wider uppercase border-2 border-white/20 text-white hover:border-white/40 hover:bg-white/5 transition-all duration-200"
             >
               <Phone size={16} /> Call Us Now
-            </a>
+            </Link>
           </motion.div>
 
           {/* Trust badges */}

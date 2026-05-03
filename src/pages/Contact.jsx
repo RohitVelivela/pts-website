@@ -163,7 +163,7 @@ export default function Contact() {
               <motion.div variants={fadeRight} className="card p-6">
                 <img src="/logo-updated.png" alt="PTS" className="h-10 w-auto object-contain mb-4" />
                 <p className="text-text-body font-body text-sm leading-relaxed">
-                  Pinnacle Technology Services — engineering excellence delivered with integrity, precision, and accountability.
+                  Pinnacle Technology Services, engineering excellence delivered with integrity, precision, and accountability.
                 </p>
               </motion.div>
 
@@ -172,7 +172,7 @@ export default function Contact() {
                 <h3 className="font-display font-bold text-text-heading text-lg mb-5">Get in Touch</h3>
                 <div className="space-y-4">
                   {[
-                    { icon: MapPin, label: 'Address', value: 'Hyderabad, Telangana, India', color: '#2563EB', href: null },
+                    { icon: MapPin, label: 'Address', value: 'Ground Floor, DSL Abacus IT Park, Uppal, Hyderabad - 500 039, Telangana, India', color: '#2563EB', href: null },
                     { icon: Phone,  label: 'Phone',   value: company.phone,  color: '#1B8C3C', href: `tel:${company.phone}` },
                     { icon: Mail,   label: 'Email',   value: company.email,  color: '#F5A623', href: `mailto:${company.email}` },
                   ].map(c => (
