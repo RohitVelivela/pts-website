@@ -47,13 +47,13 @@ export default function Contact() {
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
-          from_name:    form.name,
-          from_email:   form.email,
-          phone:        form.phone || 'Not provided',
-          company_name: form.company_name || 'Not provided',
-          service:      form.service || 'Not specified',
-          message:      form.message,
-          to_email:     company.email,
+          name:    form.name,
+          email:   form.email,
+          phone:   form.phone || 'Not provided',
+          company: form.company_name || 'Not provided',
+          service: form.service || 'Not specified',
+          message: form.message,
+          title:   `New enquiry from ${form.name}`,
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
