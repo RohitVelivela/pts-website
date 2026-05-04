@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import emailjs from '@emailjs/browser'
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle2 } from 'lucide-react'
 import { useScrollReveal, staggerContainer, fadeRight, fadeUp } from '../hooks/useScrollAnimation'
 import SectionLabel from '../components/ui/SectionLabel'
@@ -41,10 +42,30 @@ export default function Contact() {
     const errs = validate(form)
     if (Object.keys(errs).length > 0) { setErrors(errs); return }
     setLoading(true)
-    await new Promise(r => setTimeout(r, 1500))
-    setLoading(false)
-    setSuccess(true)
-    setForm(initialForm)
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name:    form.name,
+          from_email:   form.email,
+          phone:        form.phone || 'Not provided',
+          company_name: form.company_name || 'Not provided',
+          service:      form.service || 'Not specified',
+          message:      form.message,
+          to_email:     company.email,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      setSuccess(true)
+      setForm(initialForm)
+    } catch (err) {
+      const detail = err?.text || err?.message || JSON.stringify(err)
+      console.error('EmailJS error:', detail)
+      setErrors({ message: `Failed: ${detail}` })
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (

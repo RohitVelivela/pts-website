@@ -168,7 +168,7 @@ export default function Navbar() {
                 <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'rgba(27,140,60,0.09)' }}>
                   <Phone size={13} style={{ color: '#1B8C3C' }} />
                 </div>
-                <span style={{ fontFamily: SG, fontWeight: 600, fontSize: '14.5px' }}>+91 83282 45609</span>
+                <span style={{ fontFamily: SG, fontWeight: 600, fontSize: '14.5px' }}>+91 63009 58387</span>
               </div>
             </div>
 
@@ -216,7 +216,7 @@ export default function Navbar() {
               <div className="mt-3 pt-4" style={{ borderTop: '1px solid #F3F4F6' }}>
                 <div className="flex items-center gap-3 mb-4 px-1">
                   <Phone size={13} style={{ color: '#1B8C3C' }} />
-                  <span style={{ fontFamily: SG, fontSize: '14px', color: '#6B7280' }}>+91 83282 45609</span>
+                  <span style={{ fontFamily: SG, fontSize: '14px', color: '#6B7280' }}>+91 63009 58387</span>
                 </div>
               </div>
             </div>

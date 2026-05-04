@@ -176,8 +176,8 @@ function AboutGallery() {
               <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: i % 2 === 0 ? 'rgba(232,35,26,0.08)' : 'rgba(27,140,60,0.08)', border: `1px solid ${i % 2 === 0 ? 'rgba(232,35,26,0.15)' : 'rgba(27,140,60,0.15)'}` }}>
                 <item.icon size={20} style={{ color: i % 2 === 0 ? '#E8231A' : '#1B8C3C' }} />
               </div>
-              <div>
-                <div className="font-display font-bold text-text-heading text-base">{item.value}</div>
+              <div className="min-w-0">
+                <div className="font-display font-bold text-text-heading text-base leading-tight break-words">{item.value}</div>
                 <div className="text-text-muted font-body text-xs">{item.label}</div>
               </div>
             </div>

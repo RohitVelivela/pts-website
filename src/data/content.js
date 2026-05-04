@@ -4,7 +4,7 @@ export const company = {
   tagline: 'Building Maximum Value for Over 16 Years',
   location: 'Ground Floor, DSL Abacus IT Park, Uppal, Hyderabad - 500 039, Telangana, India',
   email: 'info@pinnacletechservices.com',
-  phone: '+91 83282 45609',
+  phone: '+91 63009 58387',
   hours: 'Mon - Sat: 10:00 AM - 7:00 PM',
   founded: 1996,
   experience: 16,

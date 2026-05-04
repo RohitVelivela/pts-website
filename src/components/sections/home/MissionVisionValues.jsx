@@ -49,12 +49,7 @@ export default function MissionVisionValues() {
             className="card p-8 relative overflow-hidden lg:scale-105"
             style={{ borderTop: '3px solid #1B8C3C', boxShadow: '0 8px 40px rgba(27,140,60,0.12)' }}
           >
-            {/* Featured badge */}
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-              <span className="px-4 py-1 rounded-full text-xs font-bold font-display tracking-widest uppercase text-white" style={{ background: 'linear-gradient(135deg, #1B8C3C, #156B2E)' }}>
-                Our Vision
-              </span>
-            </div>
+
             <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 mt-2" style={{ background: 'rgba(27,140,60,0.08)', border: '1px solid rgba(27,140,60,0.2)' }}>
               <Eye size={26} className="text-green" />
             </div>
